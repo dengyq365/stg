@@ -41,7 +41,8 @@ class Test(unittest.TestCase):
 
     def test_torch(self):
         args_cuda = torch.cuda.is_available()
-        device = torch.device("cuda" if args_cuda else "cpu")
+        # device = torch.device("cuda" if args_cuda else "cpu")
+        device = 'gpu'
         #torch.backends.cudnn.benchmark = True
         feature_selection = True
         report_maps = {'l2_norm_1st_neuron': lambda x : torch.norm(x.mlp[0][0].weight[:, 0]).item(),
